@@ -1,0 +1,133 @@
+@import "vars";
+@import "mixins";
+@import "fixes";
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0 2rem;
+  font-weight: normal;
+  line-height: 1.4;
+  font-size: 1.6rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include breakpoint($small-desktop-bp) {
+    padding: 0;
+  }
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 3rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
+
+  @include breakpoint($small-desktop-bp) {
+    font-size: 2.2rem;
+    line-height: 1.4;
+  }
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
+
+  @include breakpoint($small-desktop-bp) {
+    font-size: 2rem;
+    line-height: 1.4;
+  }
+}
+
+// Перезаписи стилей
+.post__header {
+  .ant-image {
+    border-start-start-radius: 1rem;
+    border-start-end-radius: 1rem;
+    display: block;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-start-start-radius: 1rem;
+      border-start-end-radius: 1rem;
+      top: 0;
+      left: 0;
+      background-color: rgba(black, 50%);
+      transition: background-color .5s linear;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(black, 0%);
+      }
+    }
+  }
+
+  .ant-image-img {
+    border-radius: 1rem;
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: cover;
+    position: relative;
+  }
+}
+
+.image-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+
+  .ant-image-img {
+    border-radius: .3rem;
+    width: auto;
+    height: auto;
+    max-height: 60vh;
+    max-width: 85%;
+    object-fit: cover;
+    position: relative;
+  }
+}
+
+.cover {
+  .ant-image {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.posts {
+  .ant-card-body {
+    @include breakpoint($mobile-bp) {
+      padding: 2.4rem 0.8rem !important;
+    }
+  }
+
+  .swiper-button-next {
+    right: 2px;
+  }
+
+  .swiper-button-prev {
+    left: 2px;
+  }
+}
